@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxury Cruise Trip</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f6f2;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #262c55;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #729bb380;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .trip-info {
+        display: flex;
+      }
+
+      .trip-info img {
+        width: 50%;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .details {
+        width: 50%;
+        padding-left: 20px;
+      }
+
+      h2 {
+        color: #25377f;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      ul li {
+        margin-bottom: 5px;
+      }
+
+      .booking-form {
+        margin-top: 20px;
+      }
+
+      .booking-form h2 {
+        margin-bottom: 10px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      button[type="submit"] {
+        background-color: #2430b2;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #d68910;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Luxury Cruise Trip</h1>
+    </header>
+    <div class="container">
+      <div class="trip-info">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVMzjYs6DXUm8MvmfrCr4MpLg5dfBDF5ZJYQ&s"
+          alt="Cruise Image"
+        />
+        <div class="details">
+          <h2>About the Trip</h2>
+          <p>
+            Embark on a luxurious journey across stunning coastlines and exotic
+            destinations.
+          </p>
+          <h2>Duration</h2>
+          <p>10 days, 9 nights</p>
+          <h2>Vessels</h2>
+          <ul>
+            <li>Luxury Yachts</li>
+            <li>Ocean Liners</li>
+            <li>Cruise Ships</li>
+          </ul>
+          <h2>Destinations</h2>
+          <ul>
+            <li>Tropical Islands</li>
+            <li>Exotic Ports</li>
+            <li>Coastal Cities</li>
+          </ul>
+          <h2>Cost</h2>
+          <p id="cost">Select mode of transport to calculate cost</p>
+          <h2>Mode of Transport</h2>
+          <select name="transport" id="transport" onchange="calculateCost()">
+            <option value="luxury_ship">Luxury Ship</option>
+            <option value="yacht">Private Yacht</option>
+            <option value="liner">Ocean Liner</option>
+          </select>
+        </div>
+      </div>
+      <div class="booking-form">
+        <h2>Book Your Trip</h2>
+        <form action="book_trip.php" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="people">Number of People:</label>
+          <input type="number" id="people" name="people" min="1" required />
+          <button type="submit">Book Now</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function calculateCost() {
+        var transport = document.getElementById("transport").value;
+        var cost;
+        switch (transport) {
+          case "luxury_ship":
+            cost = "Rs.15000/- per person";
+            break;
+          case "yacht":
+            cost = "Rs.17000/- per person";
+            break;
+          case "liner":
+            cost = "Rs.14000/- per person";
+            break;
+          default:
+            cost = "Select mode of transport to calculate cost";
+        }
+        document.getElementById("cost").innerText = cost;
+      }
+    </script>
+  </body>
+</html>

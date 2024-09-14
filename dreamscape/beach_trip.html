@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beach Getaway Trip</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f6f2;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #9c7e74;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #a26a3880;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .trip-info {
+        display: flex;
+      }
+
+      .trip-info img {
+        width: 50%;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .details {
+        width: 50%;
+        padding-left: 20px;
+      }
+
+      h2 {
+        color: #574333;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      ul li {
+        margin-bottom: 5px;
+      }
+
+      .booking-form {
+        margin-top: 20px;
+      }
+
+      .booking-form h2 {
+        margin-bottom: 10px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      button[type="submit"] {
+        background-color: #6c3b0e;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #bb987d;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Beach Getaway Trip</h1>
+    </header>
+    <div class="container">
+      <div class="trip-info">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjauWCzocVW8Z-QDuzwZMVmR22m5W3I91S0NMh6aW5Hw&s"
+        />
+        <div class="details">
+          <h2>About the Trip</h2>
+          <p>
+            Relax and unwind on pristine beaches with crystal-clear waters.
+            Enjoy sunbathing, swimming, and water sports activities.
+          </p>
+          <h2>Duration</h2>
+          <p>5 days, 4 nights</p>
+          <h2>Hotels Available</h2>
+          <ul>
+            <li>Beachfront Resort</li>
+            <li>Coastal Villas</li>
+            <li>Tropical Bungalows</li>
+          </ul>
+          <h2>Beaches</h2>
+          <ul>
+            <li>Sandy Cove Beach</li>
+            <li>Palm Bay Beach</li>
+            <li>Seashell Shore</li>
+          </ul>
+          <h2>Cost</h2>
+          <p id="cost">$1500 per person</p>
+          <h2>Mode of Transport</h2>
+          <select name="transport" id="transport" onchange="updateCost()">
+            <option value="flight">Flight</option>
+            <option value="cruise">Cruise</option>
+            <option value="car">Car Rental</option>
+            <option value="train">By Train</option>
+            <option value="boat">By Boat</option>
+          </select>
+        </div>
+      </div>
+      <div class="booking-form">
+        <h2>Book Your Trip</h2>
+        <form action="success.html" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="people">Number of People:</label>
+          <input type="number" id="people" name="people" min="1" required />
+          <button type="submit">Book Now</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function updateCost() {
+        var transport = document.getElementById("transport").value;
+        var cost = 1500; // Base cost
+        // Adjust cost based on transport mode
+        switch (transport) {
+          case "flight":
+            cost += 500; // Example adjustment
+            break;
+          case "cruise":
+            cost += 700; // Example adjustment
+            break;
+          case "car":
+            cost += 200; // Example adjustment
+            break;
+          case "train":
+            cost += 300; // Example adjustment
+            break;
+          case "boat":
+            cost += 400; // Example adjustment
+            break;
+          default:
+            break;
+        }
+        document.getElementById("cost").innerHTML = "Rs." + cost + "/-";
+      }
+    </script>
+  </body>
+</html>
